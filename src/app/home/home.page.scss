@@ -25,3 +25,12 @@
 #container a {
   text-decoration: none;
 }
+
+.date{
+  width: 100%;
+  padding: 0;
+}
+
+::ng-deep .mat-form-field-wrapper{
+  padding-bottom: 0.5em;
+  }

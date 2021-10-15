@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Veterinaria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div>
+    <h2 class="ion-text-center">Ingrese sus credenciales</h2>
+  </div>
+  <ion-card>
+    <ion-item>
+      <ion-label>Usuario</ion-label>
+      <ion-input [(ngModel)]="user.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="user.pass"></ion-input>
+    </ion-item>
+    <ion-button color="danger" class="ion-text-center" (click)="login()">OK</ion-button>
+  </ion-card>
+</ion-content>

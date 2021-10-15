@@ -1,20 +1,55 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title id="titulo"> Reserva </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div>
+    <h2 class="ion-text-center">Datos de la reserva</h2>
   </div>
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating">Nombre del Dueño</ion-label>
+      <ion-input [(ngModel)]="mascota.duenio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre de la Mascota</ion-label>
+      <ion-input [(ngModel)]="mascota.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Categoría</ion-label>
+      <ion-select [(ngModel)]="mascota.categoria" interface="popover">
+        <ion-select-option *ngFor="let cat of categoria" [value]="cat"
+          >{{cat}}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <ion-item style="text-align: center">
+      <mat-form-field appearance="outline" class="date">
+        <mat-label>Fecha de Reserva</mat-label>
+        <input
+          [(ngModel)]="fecha"
+          matInput
+          [min]="minDate"
+          [matDatepicker]="picker"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Hora de Reserva</ion-label>
+      <ion-select [(ngModel)]="mascota.hora" interface="popover">
+        <ion-select-option *ngFor="let hora of horas" [value]="hora"
+          >{{hora}}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <ion-button (click)="reservar()">Reservar</ion-button>
+    <ion-button (click)="limpiar()">Limpiar</ion-button>
+  </ion-card>
 </ion-content>
